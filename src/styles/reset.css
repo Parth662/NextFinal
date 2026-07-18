@@ -1,0 +1,12 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+a {
+  text-decoration: none;
+}
