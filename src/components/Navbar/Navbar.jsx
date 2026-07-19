@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Logo from './Logo';
 import AnimatedLink from './AnimatedLink';
 import Dropdown from './Dropdown';
@@ -9,11 +10,14 @@ const Navbar = () => {
   const { scrollDirection, isScrolled } = useScrollDirection();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
-  // If a dropdown is open, force the light theme
-  const theme = activeDropdown ? 'light' : 'dark';
+  // If a dropdown is open, OR we are on the white cases page, force the light theme
+  const theme = (activeDropdown || location.pathname === '/projects') ? 'light' : 'dark';
 
   const navClass = `navbar ${theme === 'light' ? 'navbar-light' : ''} ${
     isScrolled && !activeDropdown ? 'navbar-scrolled' : ''
@@ -23,28 +27,28 @@ const Navbar = () => {
     <>
       <nav className={navClass} onMouseLeave={() => setActiveDropdown(null)}>
         <div className="navbar-container">
-          <div className="navbar-logo">
+          <div className="navbar-logo" style={{ cursor: 'pointer' }} onClick={() => navigate('/')}>
             <Logo theme={theme} />
           </div>
           
           <div className="navbar-links">
             <div onMouseEnter={() => setActiveDropdown('services')}>
-              <AnimatedLink href="#services" theme={theme} hasDropdown={true}>Services</AnimatedLink>
+              <AnimatedLink href="/#services" theme={theme} hasDropdown={true}>Services</AnimatedLink>
             </div>
             <div onMouseEnter={() => setActiveDropdown('industries')}>
-              <AnimatedLink href="#industries" theme={theme} hasDropdown={true}>Industries</AnimatedLink>
+              <AnimatedLink href="/#industries" theme={theme} hasDropdown={true}>Industries</AnimatedLink>
             </div>
             <div onMouseEnter={() => setActiveDropdown(null)}>
-              <AnimatedLink href="#cases" theme={theme}>Cases</AnimatedLink>
+              <AnimatedLink href="/projects" theme={theme}>Cases</AnimatedLink>
             </div>
             <div onMouseEnter={() => setActiveDropdown('company')}>
-              <AnimatedLink href="#company" theme={theme} hasDropdown={true}>Company</AnimatedLink>
+              <AnimatedLink href="/#company" theme={theme} hasDropdown={true}>Company</AnimatedLink>
             </div>
             <div onMouseEnter={() => setActiveDropdown(null)}>
-              <AnimatedLink href="#insights" theme={theme}>Insights</AnimatedLink>
+              <AnimatedLink href="/#insights" theme={theme}>Insights</AnimatedLink>
             </div>
             <div onMouseEnter={() => setActiveDropdown(null)}>
-              <AnimatedLink href="#contacts" theme={theme}>Contacts</AnimatedLink>
+              <AnimatedLink href="/#contacts" theme={theme}>Contacts</AnimatedLink>
             </div>
           </div>
 

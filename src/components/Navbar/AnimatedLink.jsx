@@ -1,11 +1,39 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
-const AnimatedLink = ({ href, children, theme = 'dark', hasDropdown = false }) => {
+const AnimatedLink = ({ href, children, theme = 'dark', hasDropdown = false, onClick }) => {
   const textColorClass = theme === 'light' ? 'text-black' : 'text-white';
   
+  const handleClick = (e) => {
+    if (onClick) {
+      onClick();
+    }
+  };
+
+  // If it's a relative URL without hash, or it's /projects, use Link.
+  // We'll just use Link for everything, but React Router's Link expects `to` instead of `href`.
+  const isHash = href.startsWith('#');
+
+  if (isHash) {
+    return (
+      <a href={href} className={`animated-link ${textColorClass}`} onClick={handleClick}>
+        <div className="animated-link-content">
+          <span className="animated-link-text">
+            {children}
+            {hasDropdown && <ChevronDown />}
+          </span>
+          <span className="animated-link-text-hover">
+            {children}
+            {hasDropdown && <ChevronDown />}
+          </span>
+        </div>
+      </a>
+    );
+  }
+
   return (
-    <a href={href} className={`animated-link ${textColorClass}`}>
+    <Link to={href} className={`animated-link ${textColorClass}`} onClick={handleClick}>
       <div className="animated-link-content">
         <span className="animated-link-text">
           {children}
@@ -16,7 +44,7 @@ const AnimatedLink = ({ href, children, theme = 'dark', hasDropdown = false }) =
           {hasDropdown && <ChevronDown />}
         </span>
       </div>
-    </a>
+    </Link>
   );
 };
 
