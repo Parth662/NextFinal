@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import hero_video from "../../assets/hero-video.mp4";
 import l_1 from "../../assets/l_1.svg";
 import l_2 from "../../assets/l_2.svg";
 import l_3 from "../../assets/l_3.svg";
@@ -100,12 +101,11 @@ export default function Hero() {
 
         <div className="hero__body">
           <div className="hero__showreel-col">
-            <div className="hero__showreel">
-              <a className="hero__showreel-link" href="#showreel">
-                Showreel 25/26
-              </a>
+            <div className="hero__showreel-video">
+              <video autoPlay muted loop playsInline>
+                <source src={hero_video} type="video/mp4" />
+              </video>
             </div>
-            <div className="hero__showreel-image">Video</div>
           </div>
 
           <div className="hero__info-col">
