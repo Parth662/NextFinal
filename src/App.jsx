@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
+import Hero from './components/Hero/Hero';
 import Cases from './components/Cases/Cases';
 import Services from './components/services';
 import Footer from './components/footer';
@@ -27,31 +28,7 @@ export default function App() {
             <div className="glow-blob glow-blob-2"></div>
 
             {/* Hero Section */}
-            <section className="hero-section">
-              <div className="hero-content">
-                <div className="hero-tag">
-                  <span className="tag-pulse"></span>
-                  NEXT-GEN WEB AGENCY
-                </div>
-                <h1 className="hero-title">
-                  We engineer <span className="gradient-text">digital experiences</span> that shape the future
-                </h1>
-                <p className="hero-subtitle">
-                  We partner with forward-thinking brands to design, build, and optimize high-end, immersive web applications and digital interfaces with flawless execution.
-                </p>
-                <div className="hero-actions">
-                  <a href="#services-section" className="btn btn-primary">
-                    Explore Our Services
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="btn-arrow">
-                      <path d="M12 5v14M5 12l7 7 7-7" />
-                    </svg>
-                  </a>
-                  <a href="#cta" className="btn btn-secondary">
-                    Book a Strategy Call
-                  </a>
-                </div>
-              </div>
-            </section>
+            <Hero />
 
             {/* Services Component */}
             <main className="main-content">
