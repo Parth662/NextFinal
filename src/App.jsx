@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
+import FeaturedClients from './components/FeaturedClients/FeaturedClients';
 import Cases from './components/Cases/Cases';
 import Services from './components/services';
 import Footer from './components/footer';
@@ -29,6 +30,9 @@ export default function App() {
 
             {/* Hero Section */}
             <Hero />
+
+            {/* Featured Clients Section */}
+            <FeaturedClients />
 
             {/* Services Component */}
             <main className="main-content">
