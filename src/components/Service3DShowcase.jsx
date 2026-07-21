@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 // Helper to normalize a 3D vertex
 const normalize = ([x, y, z]) => {
@@ -24,9 +24,7 @@ const getCubeVertices = () => {
   return vertices;
 };
 
-// Cube Edges (indices out of 24)
 const getCubeEdges = () => {
-  const edges = [];
   const baseEdges = [
     [0, 1], [1, 3], [3, 2], [2, 0], // Back face
     [4, 5], [5, 7], [7, 6], [6, 4], // Front face

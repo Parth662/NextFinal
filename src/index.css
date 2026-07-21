@@ -15,8 +15,8 @@
   --accent-cyan: #e5e7eb;
   --shadow: rgba(0, 0, 0, 0.9) 0 25px 50px -12px, rgba(255, 255, 255, 0.02) 0 0 40px 0px;
 
-  --sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --sans: 'Bricolage Grotesque', 'Inter', system-ui, -apple-system, sans-serif;
+  --heading: 'Bricolage Grotesque', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   font: 16px/1.6 var(--sans);
@@ -40,6 +40,11 @@ body {
   background-image: 
     radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.02) 0%, transparent 40%),
     radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 40%);
+}
+
+* {
+  box-sizing: border-box;
+  position: relative;
 }
 
 #root {
